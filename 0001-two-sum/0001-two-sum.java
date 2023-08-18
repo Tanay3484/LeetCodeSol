@@ -11,13 +11,15 @@ class Solution {
                 if(map.containsKey(diff)){
                     res[0] = map.get(diff);
                     res[1] = i;
-                    break;
+                    return res;
                 }
                 else{
                     map.put(nums[i],i);
                 }
             }
         }
+        res[0] = -1;
+        res[1] = -1;
         return res;
     }
 }
