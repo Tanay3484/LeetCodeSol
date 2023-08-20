@@ -1,0 +1,46 @@
+class MyHashMap {
+
+    private List<Integer> Key = new ArrayList<Integer>();
+    private List<Integer> Value = new ArrayList<Integer>();
+    public MyHashMap() {
+        this.Key = Key;
+        this.Value = Value;
+    }
+    
+    public void put(int key, int value) {
+        if(Key.contains(key)){
+            int index = Key.indexOf(key);
+            Value.set(index,value);
+        }
+        else{
+            Key.add(key);
+            Value.add(value);
+        }
+    }
+    
+    public int get(int key) {
+        if(!Key.contains(key)){
+            return -1;
+        }
+        else{
+            int index = Key.indexOf(key);
+            return Value.get(index);
+        }
+    }
+    
+    public void remove(int key) {
+        if(Key.contains(key)){
+            int index = Key.indexOf(key);
+            Key.remove(index);
+            Value.remove(index);
+        }
+    }
+}
+
+/**
+ * Your MyHashMap object will be instantiated and called as such:
+ * MyHashMap obj = new MyHashMap();
+ * obj.put(key,value);
+ * int param_2 = obj.get(key);
+ * obj.remove(key);
+ */
