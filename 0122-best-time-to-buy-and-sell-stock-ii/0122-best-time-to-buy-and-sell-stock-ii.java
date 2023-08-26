@@ -6,6 +6,7 @@ class Solution {
                 totalProfit = totalProfit+(prices[i]-prices[i-1]);
             }
         }
+        System.gc();
         
         return totalProfit;
     }
