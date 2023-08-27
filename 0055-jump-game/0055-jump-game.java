@@ -8,9 +8,11 @@ class Solution {
         }
         
         if(goal==0){
+            System.gc();
             return true;
         }
         else{
+            System.gc();
             return false;
         }
     }
