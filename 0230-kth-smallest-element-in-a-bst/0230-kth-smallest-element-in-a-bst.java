@@ -16,16 +16,19 @@
 class Solution {
     public int kthSmallest(TreeNode root, int k) {
         if(root==null) return 0;
-        Queue<TreeNode> q = new LinkedList<>();
-        q.offer(root);
-        List<Integer> nums = new ArrayList<Integer>();
-        while(!q.isEmpty()){
-            TreeNode curr = q.poll();
-            nums.add(curr.val);
-            if(curr.right!=null) q.offer(curr.right);
-            if(curr.left!=null) q.offer(curr.left);
+        Stack<TreeNode> s = new Stack<TreeNode>();
+        List<Integer> res = new ArrayList<Integer>();
+        TreeNode curr = root;
+        while(curr!=null||s.size()>0){
+            while(curr!=null){
+                s.push(curr);
+                curr = curr.left;
+            }
+            curr = s.pop();
+            res.add(curr.val);
+            curr = curr.right;
         }
-        Collections.sort(nums);
-        return nums.get(k-1);
+        Collections.sort(res);
+        return res.get(k-1);
     }
 }
