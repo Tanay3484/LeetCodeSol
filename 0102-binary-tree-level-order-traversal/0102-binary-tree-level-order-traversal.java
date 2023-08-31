@@ -36,6 +36,7 @@ class Solution {
             }
             res.add(level);
         }
+        System.gc();
         return res;
     }
 }
