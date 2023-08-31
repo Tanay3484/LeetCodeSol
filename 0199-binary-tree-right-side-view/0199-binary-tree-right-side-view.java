@@ -28,7 +28,6 @@ class Solution {
                 if(curr.left!=null) queue.offer(curr.left);
             }
         }
-        System.gc();
         return res;
     }
 }
