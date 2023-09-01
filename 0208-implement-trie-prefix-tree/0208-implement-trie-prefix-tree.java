@@ -1,5 +1,3 @@
-import java.util.HashMap;
-
 class TrieNode {
     public HashMap<Character, TrieNode> children;
     public boolean endOfWord;
