@@ -1,9 +1,9 @@
 class TrieNode {
-    public HashMap<Character, TrieNode> children;
+    public TrieNode[] children;
     public boolean endOfWord;
 
     public TrieNode() {
-        children = new HashMap<>();
+        children = new TrieNode[26];
         endOfWord = false;
     }
 }
@@ -17,33 +17,39 @@ class Trie {
 
     public void insert(String word) {
         TrieNode cur = root;
-        for (char c : word.toCharArray()) {
-            if (!cur.children.containsKey(c)) {
-                cur.children.put(c, new TrieNode());
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            int index = c - 'a';
+            if (cur.children[index] == null) {
+                cur.children[index] = new TrieNode();
             }
-            cur = cur.children.get(c);
+            cur = cur.children[index];
         }
         cur.endOfWord = true;
     }
 
     public boolean search(String word) {
         TrieNode cur = root;
-        for (char c : word.toCharArray()) {
-            if (!cur.children.containsKey(c)) {
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            int index = c - 'a';
+            if (cur.children[index] == null) {
                 return false;
             }
-            cur = cur.children.get(c);
+            cur = cur.children[index];
         }
         return cur.endOfWord;
     }
 
     public boolean startsWith(String prefix) {
         TrieNode cur = root;
-        for (char c : prefix.toCharArray()) {
-            if (!cur.children.containsKey(c)) {
+        for (int i = 0; i < prefix.length(); i++) {
+            char c = prefix.charAt(i);
+            int index = c - 'a';
+            if (cur.children[index] == null) {
                 return false;
             }
-            cur = cur.children.get(c);
+            cur = cur.children[index];
         }
         return true;
     }
