@@ -5,6 +5,7 @@ class Solution {
         for(int i = 0;i<strs[0].length();i++){
             for(String s : strs){
                 if(i==s.length()||s.charAt(i)!=strs[0].charAt(i)){
+                    System.gc();
                     return res.toString();
                 }
             }
