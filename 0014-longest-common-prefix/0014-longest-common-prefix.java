@@ -10,6 +10,7 @@ class Solution {
             }
             res.append(strs[0].charAt(i));
         }
+        System.gc();
         return res.toString();
     }
 }
