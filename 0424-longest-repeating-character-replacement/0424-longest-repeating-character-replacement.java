@@ -5,7 +5,7 @@ class Solution {
         int l = 0;
         for(int r = 0;r<s.length();r++){
             count.put(s.charAt(r),1+count.getOrDefault(s.charAt(r),0));
-            while((r-l+1)-Collections.max(count.values())>k){
+            if((r-l+1)-Collections.max(count.values())>k){
                 count.put(s.charAt(l),count.get(s.charAt(l))-1);
                 l++;
             }
