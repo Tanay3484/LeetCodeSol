@@ -1,9 +1,7 @@
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
         num = list(map(str,digits))
-        number = ''.join(num)
-        number = int(number)
-        number = number+1
+        number = int(''.join(num))+1
         res = []
         while(number!=0):
             digit = number%10
